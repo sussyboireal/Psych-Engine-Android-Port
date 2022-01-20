@@ -3,76 +3,76 @@
 		{
 			"loop": false,
 			"offsets": [
-				166,
-				73
+				216,
+				117
 			],
 			"anim": "singRIGHT",
 			"fps": 24,
-			"name": "Jake Right note",
+			"name": "right",
 			"indices": []
 		},
 		{
 			"loop": false,
 			"offsets": [
-				227,
-				-211
+				218,
+				95
 			],
 			"anim": "singDOWN",
 			"fps": 24,
-			"name": "Jake down note",
+			"name": "Down",
 			"indices": []
 		},
 		{
 			"loop": false,
 			"offsets": [
-				227,
-				18
+				288,
+				226
 			],
 			"anim": "singUP",
 			"fps": 24,
-			"name": "Jake up note",
+			"name": "Up",
 			"indices": []
 		},
 		{
 			"loop": false,
 			"offsets": [
-				449,
-				129
+				339,
+				149
 			],
 			"anim": "singLEFT",
 			"fps": 24,
-			"name": "Jake Left note",
+			"name": "Left",
 			"indices": []
 		},
 		{
 			"offsets": [
-				227,
-				-2
+				90,
+				36
 			],
 			"indices": [],
 			"fps": 24,
 			"anim": "idle",
 			"loop": true,
-			"name": "Jake idle dance"
+			"name": "Idle"
 		}
 	],
 	"no_antialiasing": false,
-	"image": "characters/jakesheet",
+	"image": "characters/princess",
 	"position": [
 		0,
 		0
 	],
-	"healthicon": "jake",
+	"healthicon": "bubble",
 	"flip_x": false,
 	"healthbar_colors": [
-		40,
+		60,
 		0,
-		0
+		60
 	],
 	"camera_position": [
-		-260,
-		80
+		-480,
+		-190
 	],
 	"sing_duration": 6.1,
-	"scale": 0.8
+	"scale": 1
 }
