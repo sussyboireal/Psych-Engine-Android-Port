@@ -1,5 +1,9 @@
 function onCreate()
 	--Iterate over all notes
+	makeAnimatedLuaSprite('glitch', 'static', -600, -300);
+	scaleObject('glitch', 2, 2);
+	addAnimationByPrefix('glitch', 'glitchout', 'static glitch', 24, true);
+	objectPlayAnimation('glitch', 'glitchout');
 	for i = 0, getProperty('unspawnNotes.length')-1 do
 		if getPropertyFromGroup('unspawnNotes', i, 'noteType') == 'Sword' then --Check if the note on the chart is a Bullet Note
 			setPropertyFromGroup('unspawnNotes', i, 'texture', 'Sword'); --Change texture
@@ -16,27 +20,20 @@ end
 
 function goodNoteHit(id, direction, noteType, isSustainNote)
 	if noteType == 'Sword' then
-		playSound('slice', 0.4);
-		characterPlayAnim('dad', 'attack', true);
+		playSound('slice', 0.6);
+		characterPlayAnim('dad', 'finn slash', true);
+		setProperty('dad.specialAnim', true);
 		characterPlayAnim('boyfriend', 'dodge', true);
 		setProperty('boyfriend.specialAnim', true);
-		setProperty('dad.specialAnim', true);
 		cameraShake('camGame', 0.01, 0.2)
     end
 end
 
 function noteMiss(id, direction, noteType, isSustainNote)
-	if noteType == 'Sword' and difficulty == 2 then
-		setProperty('health', getProperty('health')-0.3);
-		playSound('slice', 0.4);
-		characterPlayAnim('dad', 'attack', true);
-		characterPlayAnim('boyfriend', 'hurt', true);
-		setProperty('boyfriend.specialAnim', true);
-		setProperty('dad.specialAnim', true);
-		cameraShake('camGame', 0.01, 0.2)
-	elseif noteType == 'Sword' and difficulty == 1 then
-		setProperty('health', getProperty('health')-0.3);
-		playSound('slice', 0.4);
+	if noteType == 'Sword' then
+		setProperty('health', getProperty('health')-0.35);
+		playSound('slice', 0.6);
+		addLuaSprite('glitch', true); -- false = add behind characters, true = add over characters
 		characterPlayAnim('dad', 'attack', true);
 		characterPlayAnim('boyfriend', 'hurt', true);
 		setProperty('boyfriend.specialAnim', true);
@@ -50,6 +47,6 @@ function onTimerCompleted(tag, loops, loopsLeft)
 	-- loops = how many loops it will have done when it ends completely
 	-- loopsLeft = how many are remaining
 	if loopsLeft >= 1 then
-		setProperty('health', getProperty('health')-0.001);
+		setProperty('health', getProperty('health')-0.1);
 	end
 end
